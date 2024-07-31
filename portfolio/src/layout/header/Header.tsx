@@ -1,29 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Icon} from "../../components/icon/Icon";
+import {Container} from "../../components/Container";
+import {FlexWrapper} from "../../components/FlexWrapper";
+import {theme} from "../../styles/Theme";
 
 export const Header = () => {
     return (
         <StyledHeader>
-            <Icon iconId={"logo"} width={"142"} height={"32"} viewBox={"0 0 142 32"}/>
-            <Menu>
-                <li><a href={"#"}>About</a></li>
-                <li><a href={"#"}>Projects</a></li>
-                <li><a href={"#"}>Contacts</a></li>
-            </Menu>
+            <Container>
+                <FlexWrapper justify={"space-between"} align={"center"}>
+                    <TextLogo>Daria Nemirich</TextLogo>
+                    <Menu>
+                        <li><a href={"#"}>About</a></li>
+                        <li><a href={"#"}>Projects</a></li>
+                        <li><a href={"#"}>Contacts</a></li>
+                    </Menu>
+                </FlexWrapper>
+            </Container>
         </StyledHeader>
     );
 };
 
 const StyledHeader = styled.header`
-    display: flex;
-    justify-content: space-between;
-    background-color: #a4ec96;
+    padding: 12px;
+    position: relative;
+    z-index: 100;
 `;
 
 const Menu = styled.ul`
     display: flex;
     gap: 48px;
-    
-    list-style: none;
+
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    a {
+        color: ${theme.colors.primaryFontColor};
+
+        &:hover {
+            text-decoration: underline solid;
+        }
+    }
+
+
 `;
+
+const TextLogo = styled.a`
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+`
